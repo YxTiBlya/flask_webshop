@@ -56,6 +56,8 @@ def register():
             flash('Please, fill all fields!')
         elif password != password2:
             flash("Passwords are not equal!")
+        elif User.query.filter_by(login=login).first():
+            flash('Account with this login already exists')
         else:
             hash_pwd = generate_password_hash(password)
             new_user = User(login=login, password=hash_pwd)
@@ -76,7 +78,7 @@ def logout():
 @app.route('/profile')
 @login_required
 def profile():
-    pass
+    return render_template("profile_page.html")
 
 
 @app.after_request
