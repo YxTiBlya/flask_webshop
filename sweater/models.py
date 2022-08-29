@@ -1,12 +1,16 @@
+from unicodedata import category
 from flask_login import UserMixin
-from sweater import db, manager
+from sweater import db
 
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
+    admin = db.Column(db.Boolean, nullable=True)
 
-@manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
+
+class Сategories(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(50), nullable=False)
+    option = db.Column(db.String(10), nullable=False)
