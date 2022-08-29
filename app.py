@@ -1,9 +1,18 @@
+from unicodedata import category
 from flask import render_template, request, redirect, flash, url_for
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from sweater import db, app
-from sweater.models import User
+from sweater import db, app, manager
+from sweater.models import User, Сategories
+
+
+@manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+def get_user():
+    return current_user
 
 @app.route('/')
 def main_page():
@@ -12,7 +21,8 @@ def main_page():
 
 @app.route('/shop')
 def shop_page():
-    return render_template('shop_page.html')
+    categories = Сategories.query.all()
+    return render_template('shop_page.html', categories = categories)
 
 
 @app.route('/shop_getRequest', methods=['GET'])
@@ -27,6 +37,7 @@ def shop_getRequest():
 def login_page():
     login = request.form.get('login')
     password = request.form.get('password')
+    next_page = request.args.get('next')
 
     if not (login or password):
         flash('Please fill login and password fields')
@@ -35,9 +46,6 @@ def login_page():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-
-            next_page = request.args.get('next')
-
             return redirect(next_page)
         else:
             flash('Login or password is not correct')
@@ -87,6 +95,11 @@ def redirect_to_signin(response):
         return redirect(url_for('login_page') + '?next=' + request.url)
     
     return response
+
+@app.route('/admin')
+def admin():
+    if get_user().admin == True:
+        return render_template("admin_page.html")
 
 if __name__ == "__main__":
     db.create_all()
