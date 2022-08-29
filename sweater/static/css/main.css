@@ -224,3 +224,17 @@ body{
     height: 30px;
     border: 1px solid white;
 }
+
+/* Profile Page */
+
+.profile_page{
+    position: relative;
+    width: 40%;
+    max-height: 90%;
+    top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+    letter-spacing: 3px;
+}
