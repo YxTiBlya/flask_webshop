@@ -14,3 +14,12 @@ class Сategories(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(50), nullable=False)
     option = db.Column(db.String(10), nullable=False)
+
+
+class Items(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    category = db.Column(db.String(50), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    photo_path = db.Column(db.String(100), nullable=False)
