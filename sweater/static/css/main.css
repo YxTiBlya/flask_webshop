@@ -204,17 +204,22 @@ body{
     transition-duration: 0.6s;
 }
 
-.find_form button{
+.btn_f{
     position: relative;
+    background-color: rgba(0,0,0,0);
+    color: white;
     height: 30px;
     width: 70px;
     top: -1px;
-    left: -5px;
-    border: 1px solid white;
+    left: -7px;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition-duration: 0.6s;
 }
-
-.find_form button:hover{
+.btn_f:hover{
     cursor: pointer;
+    background-color: white;
+    color: black;
 }
 
 .find_form select{
@@ -223,6 +228,49 @@ body{
     left: 4px;
     height: 30px;
     border: 1px solid white;
+}
+
+.find_res{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.item{
+    height: 400px;
+    width: 350px;
+    background-color: white;
+    color: black;
+    letter-spacing: 1px;
+    transition-duration: 0.6s;
+}
+
+.item .photo{
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.item img{
+    width: 100%;
+    height: 100%;
+}
+
+.item .name{
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.item .price{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.item:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 0px 25px black;
 }
 
 /* Profile Page */
@@ -237,4 +285,86 @@ body{
     text-align: center;
     color: white;
     letter-spacing: 3px;
+}
+
+/* Admin Page */
+
+.admin_page{
+    display: flex;
+    position: relative;
+    width: 60%;
+    max-height: 90%;
+    top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.items, .categories{
+    text-align: center;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.items h1, .categories h1{
+    text-align: center;
+}
+
+.admin_page h2{
+    margin-top: 35px;
+}
+
+.admin_page li, .admin_page ul{
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.admin_page table{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.admin_page input{
+    width: 300px;
+    height: 30px;
+    letter-spacing: 1px;
+    border: 1px solid white;
+    text-align: center;
+}
+
+.btn{
+    background-color: rgba(0,0,0,0);
+    color: white;
+    height: 30px;
+    width: 70px;
+    margin-top: 15px;
+    border: 2px solid white;
+    border-radius: 4px;
+    transition-duration: 0.6s;
+}
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.category_del{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+}
+
+.admin_page .def{
+    margin-top: 5px;
+    border: 0px;
+    color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
 }

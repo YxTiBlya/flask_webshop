@@ -2,14 +2,28 @@
 
 {% block content %}
 <div class="shop_page">
-    <form method="GET" action="/shop_getRequest" class="find_form">
-        <select name="category" id="category">
-            {% for category in categories %}
-            <option value={{ category.option }}>{{ category.category }}</option>
-            {% endfor %}
-        </select>
-        <input type="text" placeholder="Поиск по сайту" name="text">
-        <button class="btn " type="submit">Найти</button>
-    </form>
+    <div class="find">
+        <form method="GET" class="find_form">
+            <select name="category" id="category">
+                {% for category in categories %}
+                <option value={{ category.option }}>{{ category.category }}</option>
+                {% endfor %}
+            </select>
+            <input type="text" placeholder="Поиск по сайту" name="text">
+            <button class="btn_f" type="submit">Найти</button>
+        </form>
+    </div>
+
+    <div class="find_res">
+        {% for item in items %}
+            <div class="item">
+                <div class="photo">
+                    <img src="{{ item.photo_path }}" alt="Photo">
+                </div>
+                <div class="name"><b>{{ item.name }}</b></div> 
+                <div class="price">{{ item.price }} Руб.</div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
