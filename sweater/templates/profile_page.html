@@ -2,6 +2,26 @@
 
 {% block content %}
 <div class="profile_page">
-    <h1><b>PROFILE</b></h1>
+    <div class="name"><b>PROFILE</b></div>
+    <div class="orders">
+        <div class="name">Orders</div>
+        <table>
+            <tr>
+                <td>Заказчик</td>
+                <td>Дата и время заказа</td>
+                <td>Кол-во</td>
+                <td>Товар</td>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.client }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.count }}</td>
+                <td><a href="shop/{{ order.item_id }}">{{ order.item_name }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="/logout" class="quit">Выйти</a>
 </div>
 {% endblock %}

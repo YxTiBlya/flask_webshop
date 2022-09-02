@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="item_details">
+    {% for item in item_details %}
+        <div class="left">
+            <div class="photo_detail">
+                <img src="../{{ item.photo_path }}" alt="Photo">
+            </div>
+            <div class="name"><b>{{ item.name }}</b></div> 
+            <div class="price">{{ item.price }} Руб.</div>
+        </div>
+        <div class="right">
+            <div class="name"><b>DESCRIPTION</b></div>
+            <div class="description">{{ item.description }}</div>
+            <form method="POST">
+                <table>
+                    <tr>
+                        <td><input type="text" placeholder="Кол-во" name="count" required></td>
+                    </tr>
+                    <tr>
+                        <td><button class="btn_b" type="submit">Заказать</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

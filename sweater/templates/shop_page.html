@@ -16,13 +16,15 @@
 
     <div class="find_res">
         {% for item in items %}
-            <div class="item">
-                <div class="photo">
-                    <img src="{{ item.photo_path }}" alt="Photo">
+            <a href="/shop/{{ item.id }}">
+                <div class="item">
+                    <div class="photo">
+                        <img src="{{ item.photo_path }}" alt="Photo">
+                    </div>
+                    <div class="name"><b>{{ item.name }}</b></div> 
+                    <div class="price">{{ item.price }} Руб.</div>
                 </div>
-                <div class="name"><b>{{ item.name }}</b></div> 
-                <div class="price">{{ item.price }} Руб.</div>
-            </div>
+            </a>
         {% endfor %}
     </div>
 </div>

@@ -2,10 +2,11 @@ from flask import render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required, logout_user, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
+from datetime import datetime
 import os
 
 from sweater import db, app, manager, ALLOWED_EXTENSIONS, UPLOAD_FOLDER
-from sweater.models import User, Сategories, Items
+from sweater.models import User, Сategories, Items, Orders
 
 
 @manager.user_loader
@@ -39,10 +40,22 @@ def shop_page():
     return render_template('shop_page.html', categories = categories, items=items)
 
 
-@app.route('/shop_getRequest', methods=['GET'])
-def shop_getRequest():
+@app.route('/shop/<int:id>', methods=['GET', 'POST'])
+@login_required
+def shop_getRequest(id):
     if request.method == "GET":
-        return render_template('shop_page.html')
+        item_details = Items.query.filter_by(id=id)
+        return render_template('item_details_page.html', item_details=item_details)
+    else:
+        item_name = Items.query.filter_by(id=id).first().name
+        count = request.form.get('count')
+        date = datetime.now()
+        client = get_user().login
+
+        db.session.add(Orders(client=client, date=date, count=count, item_name=item_name, item_id=id))
+        db.session.commit()
+
+        return redirect(url_for('shop_page'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -100,7 +113,9 @@ def logout():
 @app.route('/profile')
 @login_required
 def profile():
-    return render_template("profile_page.html")
+    orders = Orders.query.filter_by(client=get_user().login)
+
+    return render_template("profile_page.html", orders=orders)
 
 
 #next_page generate
@@ -182,5 +197,5 @@ def del_item():
 
 
 if __name__ == "__main__":
-    db.create_all()
+    #db.create_all()
     app.run(debug=True, host='0.0.0.0')

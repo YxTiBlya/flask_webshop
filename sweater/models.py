@@ -23,3 +23,12 @@ class Items(db.Model):
     category = db.Column(db.String(50), nullable=False)
     price = db.Column(db.Float, nullable=False)
     photo_path = db.Column(db.String(100), nullable=False)
+
+
+class Orders(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    client = db.Column(db.String(128), nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    count = db.Column(db.Integer, nullable=False)
+    item_name = db.Column(db.String(100), nullable=False)
+    item_id = db.Column(db.Integer, nullable=False)
