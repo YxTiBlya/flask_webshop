@@ -19,8 +19,6 @@ services:
     container_name: flask_app
     ports:
       - 5000:5000
-    volumes:
-      - ./wait-for-it.sh:/wait-for-it.sh
     command: /wait-for-it.sh db:5432 -- python app.py
     env_file:
       - .env
