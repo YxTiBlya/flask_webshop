@@ -4,3 +4,5 @@ venv/
 docker-compose.yaml
 postgres_data
 Dockerfile
+Dockerfile.db
+README.md
