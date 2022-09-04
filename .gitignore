@@ -1,4 +1,8 @@
 venv/
 Dockerfile
+docker-compose.yaml
 .dockerignore
 __pycache__
+postgres_data
+.env
+postgres_dump.sql
