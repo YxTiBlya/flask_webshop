@@ -2,3 +2,6 @@ venv/
 sweater/__pycache__
 postgres_data
 .env
+Dockerfile
+Dockerfile.db
+postgres_dump.sql
