@@ -2,22 +2,20 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:latest
+    image: yxtiblya/flask-postgres
     container_name: postgres
     ports:
       - 5432:5432
     volumes:
       - ./postgres_data:/var/lib/postgresql/data/pgdata
-      - ./postgres_dump.sql:/docker-entrypoint-initdb.d/postgres_dump.sql
     environment:
       PGDATA: /var/lib/postgresql/data/pgdata
     env_file:
       - .env
     restart: always
-    #command: pg_restore -C -d $POSTGRES_DB -U $POSTGRES_USER docker-entrypoint-initdb.d/postgres_dump.sql
 
   app:
-    build: .
+    image: yxtiblya/flask-webshop
     container_name: flask_app
     ports:
       - 5000:5000
