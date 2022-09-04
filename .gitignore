@@ -1,6 +1,5 @@
 venv/
 Dockerfile
-docker-compose.yaml
 .dockerignore
 sweater/__pycache__
 postgres_data
