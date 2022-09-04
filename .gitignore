@@ -1,7 +1,4 @@
 venv/
-Dockerfile
-.dockerignore
 sweater/__pycache__
 postgres_data
 .env
-postgres_dump.sql
