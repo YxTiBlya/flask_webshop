@@ -20,3 +20,13 @@
 4. In `sweater/__init__.py` file in the postgres connection link change host from db to localhost (13 line).
 5. Use `postgres_dump.sql` for restore postgres dump.
 6. Enter the command `python app.py` and go to localhost:5000.
+
+### Languages and Tolls in this repository
+![Python](https://img.shields.io/badge/-Python-090909?style=for-the-badge&logo=python)
+![Sql](https://img.shields.io/badge/-POSTGRES-090909?style=for-the-badge&logo=postgresql)
+![Framework](https://img.shields.io/badge/-FLASK-090909?style=for-the-badge&logo=flask)
+![Docker](https://img.shields.io/badge/-DOCKER-090909?style=for-the-badge&logo=docker)
+![Sqlalchemy](https://img.shields.io/badge/-SQLALCHEMY-090909?style=for-the-badge)
+![Git](https://img.shields.io/badge/-GIT-090909?style=for-the-badge&logo=Git)
+![Html](https://img.shields.io/badge/-HTML-090909?style=for-the-badge&logo=html5)
+![Css](https://img.shields.io/badge/-CSS-090909?style=for-the-badge&logo=css3)
