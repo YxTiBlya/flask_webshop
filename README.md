@@ -12,6 +12,7 @@
 
 ## Installion without Docker
 ##### *if postgres db is already installed**
+##### *use the default branch**
 
 1. Clone the repository and optionally install venv.
 2. To install the required modules use the command `pip install -r requerements.txt`.
