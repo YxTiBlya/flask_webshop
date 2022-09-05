@@ -2,3 +2,7 @@ venv/
 sweater/__pycache__
 postgres_data
 .env
+Dockerfile
+Dockerfile.db
+docker-compose.yaml
+wait-for-it.sh
