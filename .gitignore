@@ -6,3 +6,4 @@ Dockerfile
 Dockerfile.db
 docker-compose.yaml
 wait-for-it.sh
+.dockerignore
