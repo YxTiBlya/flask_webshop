@@ -6,3 +6,4 @@ Dockerfile
 Dockerfile.db
 postgres_dump.sql
 wait-for-it.sh
+.dockerignore
