@@ -1,6 +1,7 @@
 ## **Flask WebShop**
+The front of this site is written for 1920x1080 resolution and has no adaptive* 
 
-# *How to install*
+# How to install
 
 ### Installation with Docker
 ##### *if docker is already installed**  
@@ -35,3 +36,4 @@ Admin page - host:5000/admin.
 ![Git](https://img.shields.io/badge/-GIT-090909?style=for-the-badge&logo=Git)
 ![Html](https://img.shields.io/badge/-HTML-090909?style=for-the-badge&logo=html5)
 ![Css](https://img.shields.io/badge/-CSS-090909?style=for-the-badge&logo=css3)
+![Nginx](https://img.shields.io/badge/-NGINX-090909?style=for-the-badge&logo=nginx&logoColor=11d43e)
